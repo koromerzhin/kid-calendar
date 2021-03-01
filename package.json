@@ -1,0 +1,28 @@
+{
+  "name": "@koromerzhin/kid-calendar",
+  "version": "1.0.0",
+  "description": "Calendar for kid",
+  "scripts": {
+    "linter-markdown": "markdownlint",
+    "contributors": "all-contributors",
+    "readme": "readme",
+    "licenses": "license-checker"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koromerzhin/kid-calendar.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/koromerzhin/kid-calendar/issues"
+  },
+  "homepage": "https://github.com/koromerzhin/kid-calendar#readme",
+  "devDependencies": {
+    "all-contributors-cli": "6.19.0",
+    "license-checker": "25.0.1",
+    "markdownlint-cli": "0.26.0",
+    "readme-md-generator": "1.0.0"
+  }
+}

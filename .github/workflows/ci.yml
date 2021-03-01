@@ -1,0 +1,36 @@
+name: Continuous Integration
+on: [push]
+jobs:
+  tests:
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      fail-fast: false
+      matrix:
+        operating-system: [ubuntu-20.04]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache npm packages
+        id: npm-cache
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node
+      - name: Install npm dependencies
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: make node_modules
+      - name: Cache apps npm packages
+        id: apps-cache
+        uses: actions/cache@v2
+        with:
+          path: apps/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/apps/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-apps
+      - name: Install apps npm dependencies
+        if: steps.apps-cache.outputs.cache-hit != 'true'
+        run: make apps/node_modules
+      - name: linter readme.md
+        run: make linter readme
