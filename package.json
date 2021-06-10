@@ -28,6 +28,6 @@
     "license-checker": "25.0.1",
     "markdownlint-cli": "0.26.0",
     "readme-md-generator": "1.0.0",
-    "snowpack": "^3.0.13"
+    "snowpack": "3.5.7"
   }
 }
